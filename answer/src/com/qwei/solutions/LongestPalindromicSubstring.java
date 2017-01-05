@@ -5,6 +5,8 @@ package com.qwei.solutions;
  * Example: input "babad", output "aba".
  */
 public class LongestPalindromicSubstring {
+
+  // First method : DP
   public static String longestPalindromeDP(String s) {
     if (s == null || s.isEmpty()) {
       return "";
@@ -45,5 +47,45 @@ public class LongestPalindromicSubstring {
       }
     }
     return longestPalindrom;
+  }
+
+  // second method : non DP
+  public static String longestPalindromicStringNonDP(String s) {
+    if (s == null || s.isEmpty()) {
+      return "";
+    }
+
+    String longestPalindromicString = "";
+
+    for (int i=0; i<=s.length()-1; i++) {
+      // for each index, need to consider two scenarios (1.current i is center ('aba'); 2. i, i+1 both are center ('baab'))
+      String a = findLongestPalindromicStringWithGivenIndex(s, i, i);
+      String b = findLongestPalindromicStringWithGivenIndex(s, i, i+1);
+
+      longestPalindromicString = longestPalindromicString.length() > a.length() ? longestPalindromicString : a;
+      longestPalindromicString = longestPalindromicString.length() > b.length() ? longestPalindromicString : b;
+    }
+    return longestPalindromicString;
+  }
+
+  // helper function to find longest palindromic string by given start index and end index
+  public static String findLongestPalindromicStringWithGivenIndex(String s, int start, int end) {
+    if (s.isEmpty()) {
+      return "";
+    }
+
+    if (start > end) {
+      return "";
+    }
+
+    while (start >= 0 && end < s.length()) {
+      if (s.charAt(start) != s.charAt(end)) {
+        break;
+      }
+      start--;
+      end++;
+    }
+
+    return s.substring(start+1, end);
   }
 }
