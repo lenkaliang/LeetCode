@@ -1,5 +1,7 @@
 package com.qwei.solutions;
 
+import com.qwei.utils.ListNode;
+
 /**
  * Given a linked list, remove the nth node from the end of list and return its head.
  *
@@ -45,13 +47,5 @@ public class RemoveNthNodeFromEnd {
     one.next = two;
 
     removeNthNodeFromEndOfList(one, 1);
-  }
-}
-
-class ListNode {
-  int val;
-  ListNode next;
-  ListNode(int x) {
-    val = x;
   }
 }
