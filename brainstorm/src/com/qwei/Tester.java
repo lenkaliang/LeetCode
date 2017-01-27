@@ -7,7 +7,9 @@ import java.util.ArrayList;
  */
 public class Tester {
   public static void main(String[] args) {
-    int i = 10;
-    System.out.println(10 << 3);
+    int i = 0;
+    int j = 10;
+
+    System.out.println(i ^ j);
   }
 }
