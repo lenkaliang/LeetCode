@@ -1,16 +1,15 @@
 package com.qwei.javabasics;
 
-;
 import com.qwei.utils.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The visit order: Root, left subtree, right subtree
+ * post order: left substree, right subtree, root
  */
-public class BinaryTreePreorder {
-  public static List<TreeNode> preorderTraverse(TreeNode root) {
+public class BinaryTreePostorder {
+  public static List<TreeNode> postorderTraverse(TreeNode root) {
     if (root == null) {
       return new ArrayList<TreeNode>();
     }
@@ -24,8 +23,9 @@ public class BinaryTreePreorder {
     if (root == null) {
       return;
     }
-    list.add(root);
+
     helper(list, root.left);
     helper(list, root.right);
+    list.add(root);
   }
 }
