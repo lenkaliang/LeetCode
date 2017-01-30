@@ -11,8 +11,4 @@ public class Student {
     this.firstName = firstName;
     this.lastName = lastName;
   }
-
-  public String toString() {
-    return this.firstName + " " + this.lastName;
-  }
 }
