@@ -9,7 +9,7 @@ import com.qwei.utils.ListNode;
  * Given 1->1->2, return 1->2.
  * Given 1->1->2->3->3, return 1->2->3.
  */
-public class RemoteDuplicatesFromSortedList {
+public class RemoveDuplicatesFromSortedList {
   public static ListNode removeDuplicate(ListNode head) {
     if (head == null || head.next == null) {
       return head;
