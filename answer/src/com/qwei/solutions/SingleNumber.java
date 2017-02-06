@@ -7,7 +7,7 @@ package com.qwei.solutions;
  *
  * For Bitwise operators：
  * NOT :  1 -> 0, 0 -> 1
- * AND (&) : 1 & 1 = 1, 1 & 0 = 0 & 0 = 0
+ * AND (&) : 1 & 1 = 1, 1 & 0 = 0, 0 & 0 = 0
  * XOR (^) : same = 0, not same = 1
  * OR (|) : if 1 exists = 1
  *
