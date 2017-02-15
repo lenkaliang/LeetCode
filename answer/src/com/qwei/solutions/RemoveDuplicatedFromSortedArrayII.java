@@ -9,6 +9,26 @@ package com.qwei.solutions;
  */
 public class RemoveDuplicatedFromSortedArrayII {
   public static int removeDuplicates(int[] nums) {
+    if (nums == null) {
+      return 0;
+    }
 
+    if (nums.length < 3) {
+      return nums.length;
+    }
+
+    int p = 1, l = 2;
+    while (l < nums.length) {
+      if (nums[p] == nums[l]) {
+        if (nums[p] == nums[p-1]) {
+          l++;
+        } else {
+          nums[++p] = nums[l++];
+        }
+      } else {
+        nums[++p] = nums[l++];
+      }
+    }
+    return p+1;
   }
 }
