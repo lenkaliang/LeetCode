@@ -15,7 +15,51 @@ import com.qwei.utils.ListNode;
  */
 public class ReverseLinkedListII {
   public static ListNode reverse(ListNode head, int m, int n) {
-    // TO DO
-    return null;
+    if (head == null || head.next == null || m == n) {
+      return head;
+    }
+
+    ListNode dummyHead = new ListNode(0);
+    dummyHead.next = head;
+
+    ListNode preStart = dummyHead;
+    ListNode start = head, end = head;
+
+    int count = 1;
+
+    while (count < m) {
+      count++;
+      preStart = preStart.next;
+      start = start.next;
+      end = end.next;
+    } // start is on mth node
+
+    while (count < n) {
+      count++;
+      end = end.next;
+    }  // end is on nth node
+    ListNode afterEnd = end.next;
+
+    ListNode node = reverseList(start, end);
+    preStart.next = node;
+    start.next = afterEnd;
+
+    return dummyHead.next;
+  }
+
+
+  public static ListNode reverseList(ListNode head, ListNode end) {
+    ListNode p = head, q = head.next;
+    end.next = null;
+    head.next = null;
+
+    while (q != null) {
+      ListNode temp = q.next;
+      q.next = p;
+      p = q;
+      q = temp;
+    }
+
+    return end;
   }
 }
