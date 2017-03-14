@@ -1,5 +1,7 @@
 package com.qwei.solutions;
 
+import org.jetbrains.annotations.Contract;
+
 /**
  * Given a positive integer, output its complement number. The complement strategy is to flip the
  * bits of its binary representation.
@@ -19,14 +21,13 @@ public class NumberComplement {
   public static int findComplement(int num) {
     StringBuffer buf = new StringBuffer();
 
-    int tmp = num;
-    while (tmp != 0) {
-      if ((tmp & 1) == 1) {
+    while (num != 0) {
+      if ((num & 1) == 1) {
         buf.insert(0,1);
       } else {
         buf.insert(0,0);
       }
-      tmp = tmp >> 1;
+      num = num >> 1;
     }
 
     // 取反，并且从二进制换算到十进制
@@ -37,5 +38,12 @@ public class NumberComplement {
       }
     }
     return sum;
+  }
+
+  @Contract(pure = true)
+    public static int findComplement2(int num) {
+    int mask = (Integer.highestOneBit(num) << 1) -1;
+    num = ~num;
+    return num & mask;
   }
 }
