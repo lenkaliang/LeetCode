@@ -13,13 +13,9 @@ public class MaximumDepthOfBinaryTree {
       return 0;
     }
 
-    if (root.left == null && root.right == null) {
-      return 1;
-    }
+    int left = maxDepth(root.left) + 1; // left max depth + current level
+    int right = maxDepth(root.right) + 1; // right max depth + current level
 
-    int leftDepth = maxDepth(root.left);
-    int rightDepth = maxDepth(root.right);
-
-    return Math.max(leftDepth, rightDepth) + 1;  // remember to count the root node
+    return Math.max(left, right);
   }
 }
