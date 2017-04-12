@@ -10,6 +10,8 @@ import java.util.Stack;
  * Examples:
  * ["2", "1", "+", "3", "*"] -> ((2 + 1) * 3) -> 9
  * ["4", "13", "5", "/", "+"] -> (4 + (13 / 5)) -> 6
+ *
+ * 用一个stack存放数。每每见到一个运算符，就pop出两个数然后根据这个运算符进行运算。运算结果依然放回到stack。
  */
 public class EvaluateReversePolishNotation {
   public static int evalRPN(String[] token) {

@@ -37,7 +37,7 @@ public class MovingAverageFromDataStream {
       currSize--;
       sum -= removed;
     }
-    return (double)sum / 2;
+    return (double)sum / 3;
   }
 }
 

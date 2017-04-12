@@ -26,7 +26,7 @@ public class ShortestWordDistance {
         index2 = i;
       }
 
-      if (index1 != -1 && index2 != -2) {
+      if (index1 != -1 && index2 != -1) {
         shortest = Math.min(shortest, Math.abs(index1 - index2));
       }
     }

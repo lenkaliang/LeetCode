@@ -2,6 +2,8 @@ package com.qwei.solutions;
 
 /**
  * Write a function to find the longest common prefix string amongst an array of strings.
+ *
+ * 以第一个String为参照物，维护一个longestCommonPrefix.
  */
 public class LongestCommonPrefix {
   public static String longestCommonPrefix(String[] strs) {

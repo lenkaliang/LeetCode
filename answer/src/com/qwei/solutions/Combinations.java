@@ -15,6 +15,9 @@ import java.util.List;
  *  [1,3],
  *  [1,4],
  * ]
+ *
+ * 思想：前i-1个数中取k-1个数的每一个组合中加上当前的这个i。
+ * 看一下如何处理k=1的情况。
  */
 public class Combinations {
   public static List<List<Integer>> getCombinations(int n, int k) {
@@ -29,7 +32,7 @@ public class Combinations {
       return list;
     }
 
-    for (int i=n; i>=k; i--) {
+    for (int i=n; i>=k; i--) {   // 理解为什么i可以取到k
       List<List<Integer>> temp = getCombinations(i-1, k-1);
       for (List<Integer> each : temp) {
         each.add(i);

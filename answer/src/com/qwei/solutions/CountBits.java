@@ -19,10 +19,12 @@ import java.util.List;
  * Can you do it like a boss? Do it without using any builtin function like __builtin_popcount in
  * c++ or in any other language.
  *
+ * 规律很简单。
+ *
  */
 public class CountBits {
   // Good analysis: http://www.cnblogs.com/grandyang/p/5294255.html
-  // The following methodis normal
+  // The following method is normal
   public static int[] countBits1(int num) {
     int[] zero = new int[] {0};
     if (num == 0) {

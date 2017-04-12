@@ -40,7 +40,7 @@ public class NestedListWeightSum {
     // if n is not an integer, it must be a list of integer or list of list or list of integer + list
     List<NestedInteger> list = n.getList();
     for (NestedInteger m: list) {
-      sum = getSum(m, sum, depth);
+      sum = getSum(m, sum, depth+1);
     }
     return sum;
   }

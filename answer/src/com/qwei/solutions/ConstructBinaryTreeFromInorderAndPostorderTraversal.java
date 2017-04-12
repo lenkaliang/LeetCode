@@ -6,6 +6,13 @@ import com.qwei.utils.TreeNode;
  * Given inorder and postorder traversal of a tree, construct the binary tree.
  *
  * You may assume that duplicates do not exist in the tree.
+ *
+ * 牢记：
+ * preorder = root, left, right;
+ * inorder = left, root, right;
+ * postorder = left, right, root;
+ *
+ * 递归函数：helper(int[] inorder, int[] postorder, int inStart, int inEnd, int posStart, int posEnd)
  */
 public class ConstructBinaryTreeFromInorderAndPostorderTraversal {
   public static TreeNode build(int[] inorder, int[] postorder) {

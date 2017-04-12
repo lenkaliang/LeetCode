@@ -7,7 +7,7 @@ package com.qwei.solutions;
  * sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time
  * (ie, you must sell the stock before you buy again).
  *
- * This problem is asking to find each rising trend
+ * 寻找这个数组中所有的上升区间。上升区间里面每两个相邻的数取差值。然后求差值之和。
  */
 public class BestTOBuyAndSellStock {
   public static int maxProfit(int[] prices) {

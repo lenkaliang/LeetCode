@@ -10,6 +10,8 @@ package com.qwei.solutions;
  * 1011 << 2 -> 101100, which means multiply 4
  * ...
  * ">>" means divided by 2
+ *
+ * 这个算法是以long基础的。所有的变量都是long。
  */
 public class DivideTwoIntegers {
   public static int divide(int dividend, int divisor) {
@@ -31,7 +33,7 @@ public class DivideTwoIntegers {
     long num1 = Math.abs((long)dividend);
     long num2 = Math.abs((long)divisor);
 
-    long shift = 1; // this will be used to get maximum bit shift
+    long shift = 1; // this will be used to get maximum bit shift  ---  注意type是long
     while (num1 >= num2) {
       num2 = num2 << 1;     // keep multiplying 2
       shift =  shift << 1;  // keep multiplying 2

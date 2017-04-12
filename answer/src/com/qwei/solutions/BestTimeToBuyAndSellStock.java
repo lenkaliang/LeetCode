@@ -5,6 +5,10 @@ package com.qwei.solutions;
  * 
  * If you were only permitted to complete at most one transaction (ie, buy one and sell one share of
  * the stock), design an algorithm to find the maximum profit.
+ *
+ * 每到一个位置：
+ * 维护一个最小值，Math.min(min, prices[i]).
+ * 计算一次当前卖股票的利润。与之前的最大值做比较。取一个更大的值。
  */
 public class BestTimeToBuyAndSellStock {
   public static int maxProfit(int[] prices) {

@@ -12,14 +12,15 @@ import java.util.List;
  * Could you do it without extra space and in O(n) runtime? You may assume the returned list does
  * not count as extra space.
  *
- * Example:
- * Input: [4,3,2,7,8,2,3,1]
- * Output: [5,6]
+ * Example: Input: [4,3,2,7,8,2,3,1] Output: [5,6]
  *
+ * 利用每一个数将所对应的位置的数变成负数：for (int i: nums) {nums[Math.abs(i)-1] = -Math.abs(nums[Math.abs(i)-1])}
+ * 那么整个数组中正数所对应的位置+1就是你要找的数
+ * 
  */
 public class FindAllNumbersDisappearedInArray {
   public List<Integer> findDisappearedNumbers(int[] nums) {
-    for (int i=0; i<nums.length; i++) {
+    for (int i = 0; i < nums.length; i++) {
       // 通过这个，如果每一个数只出现一次的话，他们都将会被标记为对应的负数
       // 但是有的数会出现两次，所以，经过第一个for循环，所有没有被标记为负数的index就是要寻找的位置
       // 例如上例经过此轮循环数组会变成 [-4,-3,-2,-7,8,2,-3,-1]
@@ -27,9 +28,9 @@ public class FindAllNumbersDisappearedInArray {
       nums[Math.abs(nums[i]) - 1] = -Math.abs(nums[Math.abs(nums[i]) - 1]);
     }
     List<Integer> list = new ArrayList<>();
-    for (int i=0; i<nums.length; i++) {
+    for (int i = 0; i < nums.length; i++) {
       if (nums[i] > 0) {
-        list.add(i+1);
+        list.add(i + 1);
       }
     }
     return list;

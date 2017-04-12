@@ -10,6 +10,9 @@ import java.util.*;
  *
  * Note: All numbers (including target) will be positive integers. The solution set must not contain
  * duplicate combinations.
+ * 
+ * *************排序数组。*************
+ * 
  */
 public class CombinationSum {
   public static List<List<Integer>> combinationSum(int[] candidates, int target) {
@@ -26,7 +29,7 @@ public class CombinationSum {
   }
 
   public static void helper(int[] candidates, int target, List<List<Integer>> list,
-      Set<List<Integer>> set, List<Integer> temp, int step) {
+      Set<List<Integer>> set, List<Integer> temp, int index) {
     int sum = 0;
     for (int i: temp) {
       sum += i;
@@ -43,9 +46,9 @@ public class CombinationSum {
       return;
     }
 
-    for (int i=step; i<candidates.length; i++) {
+    for (int i=index; i<candidates.length; i++) {
       temp.add(candidates[i]);
-      helper(candidates, target, list, set, temp, i);      // use i instead of step !!!!
+      helper(candidates, target, list, set, temp, i);      // use i instead of index !!!!
       temp.remove(temp.size()-1);
     }
   }

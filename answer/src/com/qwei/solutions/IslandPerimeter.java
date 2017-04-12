@@ -14,8 +14,12 @@ public class IslandPerimeter {
     int num = 0;
     for (int i=0; i<grid.length; i++) {
       for (int j=0; j<grid[0].length; j++) {
-        num += 4;     // add up 4 sides of each cell
 
+        if (grid[i][j] == 0) {
+          continue;
+        }
+
+        num += 4;     // add up 4 sides of each cell
         if (i>0 && grid[i-1][j] == 1) {
           // neighboring up cell
           num -= 2;                   // deduct 2 becuase you added this side twice when add up all sides of each cell

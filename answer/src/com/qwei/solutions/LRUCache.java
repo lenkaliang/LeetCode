@@ -17,6 +17,16 @@ import java.util.Map;
  * item.
  *
  * Follow up: Could you do both operations in O(1) time complexity?
+ *
+ * 数据结构选用：
+ * 1，DoubleLinkedList，维护一个head和一个tail (每一个Node都有一个key，一个value。 每个Node都有个pre指针和一个next指针)
+ * 2，Map：需要维护一个Map为了实现O(1)查找
+ * 3，currLen用来track当前的cache的长度；capacity用来限制cache的size。
+ *
+ * 这个题目的关键是：
+ * 1，如果有节点被touch了，要先从这个节点的当前位置remove这个节点，然后将其放在Head上（Most recently used）。
+ * 2，如果有新的节点加进来，要查看是否已经超过capacity。每一次存放都要放在head，删除末尾的。
+ * 3，每一次删除和添加都要更新Map。
  */
 public class LRUCache {
   Map<Integer, DoubleLinkedListNode> map;

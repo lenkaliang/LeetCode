@@ -9,8 +9,9 @@ import java.util.List;
  *
  * For example, given n = 3, a solution set is: [ "((()))", "(()())", "(())()", "()(())", "()()()" ]
  *
- * Rule: if number of "(" is less than n, you can insert "("
- *       if number of "(" is bigger than the number of ")", you can either insert "(" or ")"
+ * 规则，如果做括号数量等于n。添加剩余的油括号。
+ * 如果，左括号数量大于右括号数量，即可添加左括号，同时也可以添加右括号。
+ * 如果，左括号数量等于右括号数量，只能添加左括号。
  *
  */
 public class GenerateParentheses {
@@ -30,14 +31,15 @@ public class GenerateParentheses {
         tmp = tmp + ")";
       }
       ret.add(tmp);
+      return;
     }
 
-    if (left < n && left > right) {
+    if (left > right) {
       recursiveHelper(ret, left + 1, right, tmp + "(", n);
       recursiveHelper(ret, left, right + 1, tmp + ")", n);
     }
 
-    if (left < n && left == right) {
+    if (left == right) {
       recursiveHelper(ret, left + 1, right, tmp + "(", n);
     }
   }

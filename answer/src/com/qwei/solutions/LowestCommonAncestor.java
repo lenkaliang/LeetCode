@@ -9,7 +9,17 @@ import com.qwei.utils.TreeNode;
  * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/?tab=Description
  *
  * For solution, please reference this video: https://www.youtube.com/watch?v=13m9ZCB8gjw
+ * 说白了就是下面几句话：
  *
+ * 如果node是null返回null
+ *
+ * 如果root是node1或者node2，那么就返回这个root。
+ *
+ * 分别向左向右recursive。
+ *
+ * 向左recursive算出left，向右recursive算出right。如果左右都不为null那么返回root。返回不为空的那个。
+ *
+ * 返回null。
  */
 public class LowestCommonAncestor {
   public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode node1, TreeNode node2) {

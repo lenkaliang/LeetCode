@@ -10,7 +10,7 @@ import com.qwei.utils.TreeNode;
  */
 public class ConvertedSortedListToBinarySearchTree {
   static ListNode h = null;
-  public static TreeNode convet(ListNode head) {
+  public static TreeNode convert(ListNode head) {
     if (head == null) {
       return null;
     }

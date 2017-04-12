@@ -56,6 +56,6 @@ public class PopulateNextRightPointersInEachNodeII {
     connect(root.right);
     connect(root.left);
 
-    // 当connect left child的时候，如果root没有right，那么就得keep looking for root的next。如果实现没有setup好，就会丢掉一些。所以recursion的时候总要先recurse right然后left child
+    // 当connect left child的时候，如果root没有right，那么就得keep looking for root的next。如果事先没有setup好，就会丢掉一些。所以recursion的时候总要先recurse right然后left child
   }
 }

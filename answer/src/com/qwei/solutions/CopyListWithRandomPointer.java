@@ -7,6 +7,10 @@ import com.qwei.utils.RandomListNode;
  * point to any node in the list or null.
  *
  * Return a deep copy of the list.
+ *
+ * 第一遍循环：克隆每一个节点并且将该节点加在被克隆的节点之后。
+ * 第二遍循环：根据被克隆的节点的random pointer来set克隆节点的random pointer。
+ * 第三遍循环：分离新旧list
  */
 public class CopyListWithRandomPointer {
   public RandomListNode copyRandomList(RandomListNode head) {
@@ -34,7 +38,7 @@ public class CopyListWithRandomPointer {
 
     RandomListNode newHead = head.next;
     p = head;
-    while (p != null && p.next != null) {    // 链接每一个新节点使之成为一个独立的List
+    while (p.next != null) {    // 链接每一个新节点使之成为一个独立的List
       RandomListNode next = p.next;
       p.next = next.next;
 

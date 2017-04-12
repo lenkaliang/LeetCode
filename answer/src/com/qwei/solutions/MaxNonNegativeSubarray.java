@@ -48,12 +48,4 @@ public class MaxNonNegativeSubarray {
 
     return result;
   }
-
-  public static void main(String[] args) {
-    ArrayList<Integer> list = new ArrayList<Integer>();
-
-
-
-    System.out.println(maxSet(list));
-  }
 }

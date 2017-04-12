@@ -7,7 +7,7 @@ package com.qwei.solutions;
  * For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-1,2,1] has the
  * largest sum = 6.
  *
- *
+ * 关键点是要维护一个当前的max sum。对于每个index，当前的max sum抑或是当前的max sum+ array[index]，或者是，array[index]
  */
 public class MaximumSubarray {
   public static int maxSubarray1(int[] nums) { // O(n) method [DP]
@@ -36,6 +36,8 @@ public class MaximumSubarray {
    * (1) Entirely in A[low,mid-1]
    * (2) Entirely in A[mid+1,high]
    * (3) Across mid
+   *
+   * 这个题目的二分法更高端一些。
    */
   public static int maxSubarray2(int[] nums) { // Binary search
     if (nums == null || nums.length < 1) {
@@ -57,7 +59,6 @@ public class MaximumSubarray {
 
     // case (3) : By crossing the middle index, the sum must be leftToMiddle+middle+middleToRight
     int sum =0;
-
     int leftToMiddle = 0;
     for (int i=mid-1; i>=left; i--) {
       sum = sum+nums[i];
@@ -72,7 +73,7 @@ public class MaximumSubarray {
     }
 
     int tempMax = Math.max(Math.max(leftMax, rightMax), currentMaxSum);
-    int maxValue = Math.max(tempMax, leftToMiddle + nums[mid]+middleToRight);
+    int maxValue = Math.max(tempMax, leftToMiddle+nums[mid]+middleToRight);
     return maxValue;
   }
 }
